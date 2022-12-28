@@ -1,0 +1,24 @@
+{
+    "name": "Devcontainer for https://github.com/stevethomas15977/learn-devcontainers-localstack-terraform",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "docker-in-docker": "latest"
+    },
+    "containerEnv": {
+        "DEBUG": "1",
+        "LS_LOG": "trace",
+        "EDGE_PORT": "4566",
+        "CONFIG_DIR": "/tmp/localstack",
+        "AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+        "AWS_DEFAULT_REGION": "${localEnv:AWS_DEFAULT_REGION}",
+        "DEFAULT_REGION": "us-east-1",
+        "USE_SSL": "false"
+    },
+    
+    "postAttachCommand": "localstack start --detached --no-banner",
+    
+    "remoteUser": "vscode"
+}
