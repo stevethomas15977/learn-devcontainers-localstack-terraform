@@ -18,7 +18,7 @@
         "USE_SSL": "false"
     },
     
-    "postAttachCommand": "localstack start --detached --no-banner",
-    
+    "postCreateCommand": "localstack start --detached --no-banner",
+
     "remoteUser": "vscode"
 }
